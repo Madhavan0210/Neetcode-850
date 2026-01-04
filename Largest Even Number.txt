@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string largestEven(string s) {
+        int r=-1;//last index of even number
+        int l=s.length()-1;
+        while(l>=0)
+            {
+                if(s[l]=='2') 
+                {
+                    r=l;
+                    break;
+                }
+                l--;
+            }
+        return r!=-1?s.substr(0,r+1):"";
+    }
+};
