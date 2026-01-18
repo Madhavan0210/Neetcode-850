@@ -1,0 +1,21 @@
+class Solution {
+public:
+    map<long long,int>mpp;
+    int cnt=0;
+    void targetCount(TreeNode* root,int targetSum,long long sum)
+    {
+        if(root==NULL) return;
+        sum+=root->val;
+        long long rem=sum-targetSum;
+        if(mpp.find(rem)!=mpp.end()) cnt+=mpp[rem];
+        mpp[sum]++;
+        targetCount(root->left,targetSum,sum);
+        targetCount(root->right,targetSum,sum);
+        mpp[sum]--;
+    }
+    int pathSum(TreeNode* root, int targetSum) {
+        mpp[0]=1;
+        targetCount(root,targetSum,0);
+        return cnt;
+    }
+};
