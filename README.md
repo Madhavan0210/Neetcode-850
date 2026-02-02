@@ -1,2 +1,2 @@
 # Neetcode-850
-Random Problems
+Pattern wise solving
