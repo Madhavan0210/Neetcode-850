@@ -1,0 +1,11 @@
+class Solution {
+public:
+     int findTotal(vector<int>& nums,int i,int total)
+     {
+        if(i==nums.size()) return total;
+        return findTotal(nums,i+1,total^nums[i])+findTotal(nums,i+1,total);
+     }
+    int subsetXORSum(vector<int>& nums) {
+        return findTotal(nums,0,0);
+    }
+};
